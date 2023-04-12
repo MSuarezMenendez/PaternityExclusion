@@ -8,19 +8,19 @@ Python scripts used on the manuscript "Universal baleen whale microsatellite pan
 
 ## Scripts
 
-**PO_check.py** Parent-offspring exclusion.
+**PO_check.py**: Parent-offspring exclusion.
 
-**PaternityExclusion.py** Paternity exclusion.
+**PaternityExclusion.py**: Paternity exclusion.
 
-**Parentage_simulation.py** Simulation of paternity assignment.
+**Parentage_simulation.py**: Simulation of paternity assignment.
 
-**Create_PO.py** Outputs every combination of two individuals from a file.
+**Create_PO.py**: Outputs every combination of two individuals from a file.
 
-**Create_Calf_Mother.py** Outputs every combination of calf-mother pairs, based on a list of samples and their sex.
+**Create_Calf_Mother.py**: Outputs every combination of calf-mother pairs, based on a list of samples and their sex.
 
-**Dataset_micro_sampling.py** Creates subsampled datasets, starting at from eight loci, adding an additional locus at a time till all loci are included.
+**Dataset_micro_sampling.py**: Creates subsampled datasets, starting at from eight loci, adding an additional locus at a time till all loci are included.
 
-**MultiLoci.py** Increases the number of loci by sampling with replacement from a microsatellite dataset.
+**MultiLoci.py**: Increases the number of loci of a dataset by sampling with replacement from the input microsatellite dataset.
 
 ## Citation
 
@@ -43,4 +43,4 @@ GNU General Public License for more details.
 
 ## Contact
 
-Scripts were written by Marcos Suarez (marcos.sume@gmail.com)
+Scripts were written by Marcos Suárez-Menéndez (marcos.sume@gmail.com)

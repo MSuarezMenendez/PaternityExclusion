@@ -1,4 +1,4 @@
-
+#! /usr/bin/env python3
 import random
 import argparse
 from argparse import ArgumentParser
