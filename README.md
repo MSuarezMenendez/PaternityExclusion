@@ -24,7 +24,7 @@ Python scripts used on the manuscript "Universal baleen whale microsatellite pan
 
 ## Citation
 
-M. Suárez-Menéndez, M. Bérubé, L. Bachmann, P. Best, M. P. Heide-Jørgensen, V. Lesage, T. Oosting, R. Prieto, C. Ramp, J. Robbins, R. Sears, M. A. Silva, M. Tollis, E. Vermeulen, G. A. Víkingsson, Ø. Wiig, and P. J. Palsbøll. Universal baleen whale microsatellite panel for individual identification and power to detect parentage (2023) bioRxiv 2023.08; doi: URL
+M. Suárez-Menéndez, M. Bérubé, L. Bachmann, P. Best, M. P. Heide-Jørgensen, V. Lesage, T. Oosting, R. Prieto, C. Ramp, J. Robbins, R. Sears, M. A. Silva, M. Tollis, E. Vermeulen, G. A. Víkingsson, Ø. Wiig, and P. J. Palsbøll. Universal baleen whale microsatellite panel for individual identification and power to detect parentage (2023) bioRxiv 2023.04.12.536337; doi: https://doi.org/10.1101/2023.04.12.536337
 
 ## License
 
