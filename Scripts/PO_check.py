@@ -11,7 +11,7 @@ parser = ArgumentParser()
 flag = parser.add_argument_group('Arguments')
 flag.add_argument("-m", action="store", dest="MinimumML", help="Match threshold")
 flag.add_argument("-i", action="store", dest="Microsatellites", help="Name\
- of input directory")
+ of input file with microsatellite data")
 flag.add_argument("-d", action="store", dest="Delimiter", help="Microsatellite\
  file column delimiter", default ="\t")
 flag.add_argument("-c", action="store", dest="CalfCow", help="Text file with potential parent offspring pairs")
