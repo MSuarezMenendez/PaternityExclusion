@@ -59,7 +59,7 @@ def mergealleles(info):
             continue
     return lista
 
-Loci = enumerate(micro[0].split(" "))
+Loci = enumerate(micro[0].split(","))
 Locuslist = list()
 for number, locus in Loci:
     if number % 2 == 0 and number != 0:
@@ -76,7 +76,7 @@ Represult_3ms = list()
 Locinum = list()
 for Num_loci in range(8,51):
     print("Loci number: {}".format(Num_loci))
-    for i in range(1,51):
+    for i in range(1,101):
         RepID = "Rep{}".format(i)
         print(RepID)
         Result = list()
@@ -84,7 +84,7 @@ for Num_loci in range(8,51):
             #Father
             male = random.choice(Males)
             micromale = list(filter(lambda f:male[0] in f, micro))
-            micromale = micromale[0].split(" ")[1::]
+            micromale = micromale[0].split(",")[1::]
             allelesmale = mergealleles(micromale)
             #Calf
             Fatherinherit = list()
@@ -94,7 +94,7 @@ for Num_loci in range(8,51):
             #HalfSib
             female = random.choice(Females)
             microfemale = list(filter(lambda f:female[0] in f, micro))
-            microfemale = microfemale[0].split(" ")[1::]
+            microfemale = microfemale[0].split(",")[1::]
             allelesfemale = mergealleles(microfemale)
             Halfsiballeles = list()
             for Locusmale, Locusfemale in zip(allelesmale, allelesfemale):
@@ -173,7 +173,7 @@ print(kn.knee)
 
 concatenated = pd.concat([Finalnom.assign(Mismatches='No mismatch'), Final1m.assign(Mismatches='One mismatch'), Final2m.assign(Mismatches='Two mismatches')],ignore_index=True)
 print(concatenated)
-concatenated.to_csv("Result_simu.txt", sep='\t')
+concatenated.to_csv("Result_simu_100.txt", sep='\t')
 ax = sns.relplot(x = "Loci",y = "FP(%)", hue = 'Mismatches',kind ="line", data=concatenated)
 sns.move_legend(ax, "center right")
 plt.ylim(0, 18)

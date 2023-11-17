@@ -6,8 +6,8 @@ import multiprocessing
 import types
 import pandas as pd
 import random
-Microsatellites= "Micro_32_loci_GM_nodups.txt"
-micro = pd.read_csv(Microsatellites, sep=" ")
+Microsatellites= "../Mn_32loci_20230905.tsv"
+micro = pd.read_csv(Microsatellites, sep="\t")
 Microheader = list(micro)
 
 #List of loci
@@ -29,4 +29,4 @@ for i in range(1,19):
     Dup2 = Dup + "(2)"
     micro[Dup1 + str(i)] = micro.loc[:, Dup1]
     micro[Dup2 + str(i)] = micro.loc[:, Dup2]
-micro.to_csv("GM_dupli50loci_from32.csv", index = False, sep=',')
+micro.to_csv("Mn_dupli50loci_from32.csv", index = False, sep=',')

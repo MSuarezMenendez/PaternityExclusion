@@ -1,10 +1,10 @@
 
 
-# **Universal baleen whale microsatellite panel for individual identification and power to detect parentage**
+# **Universal baleen whale microsatellite panel for individual identification and parentage assignment**
 
 ## Overview
 
-Python scripts used on the manuscript "Universal baleen whale microsatellite panel for individual identification and power to detect parentage".
+Python scripts used on the manuscript "Universal baleen whale microsatellite panel for individual identification and parentage assignment".
 
 ## Scripts
 
@@ -22,7 +22,9 @@ Python scripts used on the manuscript "Universal baleen whale microsatellite pan
 
 **MultiLoci.py**: Increases the number of loci of a dataset by sampling with replacement from the input microsatellite dataset.
 
-## Citation
+**Pat_Excl_Cal.py**: Calculates the non-exclusion probability of the first parent for the given dataset.
+
+## Preprint
 
 M. Suárez-Menéndez, M. Bérubé, L. Bachmann, P. Best, M. P. Heide-Jørgensen, V. Lesage, T. Oosting, R. Prieto, C. Ramp, J. Robbins, R. Sears, M. A. Silva, M. Tollis, E. Vermeulen, G. A. Víkingsson, Ø. Wiig, and P. J. Palsbøll. Universal baleen whale microsatellite panel for individual identification and power to detect parentage (2023) bioRxiv 2023.04.12.536337; doi: https://doi.org/10.1101/2023.04.12.536337
 
@@ -43,4 +45,4 @@ GNU General Public License for more details.
 
 ## Contact
 
-Scripts were written by Marcos Suárez-Menéndez (marcos.sume@gmail.com)
+Scripts were written by Marcos Suárez-Menéndez (marcos.sume@gmail.com) and Per Palsbøll

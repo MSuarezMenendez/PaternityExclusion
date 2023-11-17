@@ -14,7 +14,7 @@ flag.add_argument("-i", action="store", dest="Microsatellites", help="Name\
  of input file with microsatellite data")
 flag.add_argument("-d", action="store", dest="Delimiter", help="Microsatellite\
  file column delimiter", default ="\t")
-flag.add_argument("-c", action="store", dest="CalfCow", help="Text file with potential parent offspring pairs")
+flag.add_argument("-c", action="store", dest="POpair", help="Text file with potential parent offspring pairs")
 flag.add_argument("-t", action="store", dest="Cores", help="Number of cores to use", default = 1)
 if len(sys.argv) < 2: #If no arguments are provided, help is printed
 	sys.stderr.write("Parent-offspring exclusion employing microsatellite markers.\n\
@@ -26,7 +26,7 @@ Marine Evolution and Conservation\
 args = parser.parse_args()
 MinimumML = int(args.MinimumML)
 Microsatellites = args.Microsatellites
-CalfCow = args.CalfCow
+POpair = args.POpair
 Delimiter = args.Delimiter
 
 Cores = int(args.Cores)
@@ -45,7 +45,7 @@ def missingdata(allele):
     return allelef
 
 
-with open(CalfCow) as f: # Calf Parent pairs file
+with open(POpair) as f: # Calf Parent pairs file
     content = f.readlines()
 content = [x.strip().split('\t') for x in content]
 Todo = content
@@ -95,8 +95,8 @@ def search(Parejas):
     Allelemis = {}
     Mismatchloci = {}
     Resultados = list()
-    microcalf = micro.loc[micro['Category'] == Parejas[0]].values.tolist()[0][1::]
-    microParent = micro.loc[micro['Category'] == Parejas[1]].values.tolist()[0][1::]
+    microcalf = micro.loc[micro['IDs'] == Parejas[0]].values.tolist()[0][1::]
+    microParent = micro.loc[micro['IDs'] == Parejas[1]].values.tolist()[0][1::]
     allelesParent = mergealleles(microParent)
     allelescalf = mergealleles(microcalf)
     Sirecheck = list()

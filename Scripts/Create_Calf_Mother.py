@@ -7,7 +7,7 @@ with open("Samples.txt") as f:
     po = f.readlines()
 po = [x.strip().split('\t')[0] for x in po]
 Sex_dict = {}
-with open("Sexes.txt") as f:
+with open("Mn_Sex_20230905.tsv") as f:
     Sex = f.readlines()
     Sex = [x.strip().split('\t') for x in Sex]
     for x in Sex:
