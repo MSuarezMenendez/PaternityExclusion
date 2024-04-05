@@ -6,9 +6,11 @@ import multiprocessing
 import types
 import pandas as pd
 import random
-Microsatellites= "../Mn_32loci_20230905.tsv"
+Microsatellites= "./Microsatellites.tsv"
 micro = pd.read_csv(Microsatellites, sep="\t")
 Microheader = list(micro)
+
+Extra = 20 #Number of extra loci to be added
 
 #List of loci
 Loci = enumerate(Microheader)
@@ -20,13 +22,12 @@ for number, locus in Loci:
 for number, locus in enumerate(Locuslist):
     number = number + 1
     Locus[number] = locus[:-3]
-print(Locus)
 
 
-for i in range(1,19):
+for i in range(1, Extra + 1): 
     Dup = random.choice(list(Locus.values()))
     Dup1 = Dup + "(1)"
     Dup2 = Dup + "(2)"
     micro[Dup1 + str(i)] = micro.loc[:, Dup1]
     micro[Dup2 + str(i)] = micro.loc[:, Dup2]
-micro.to_csv("Mn_dupli50loci_from32.csv", index = False, sep=',')
+micro.to_csv("Extra_loci.tsv", index = False, sep='\t')

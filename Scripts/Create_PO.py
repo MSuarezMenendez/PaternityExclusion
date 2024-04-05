@@ -3,7 +3,7 @@ import csv
 import itertools
 
 
-with open("Samples.txt") as f:
+with open("Samples.txt") as f:  #One column with individual IDS
     po = f.readlines()
 po = [x.strip().split('\t')[0] for x in po]
 Sex_dict = {}

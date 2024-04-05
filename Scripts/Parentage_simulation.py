@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import StrMethodFormatter
 import seaborn as sns
 from kneed import KneeLocator
-from scipy.signal import savgol_filter #Smothing
+from scipy.signal import savgol_filter #Smoothing
 
 parser = ArgumentParser()
 flag = parser.add_argument_group('Arguments')
@@ -59,7 +59,7 @@ def mergealleles(info):
             continue
     return lista
 
-Loci = enumerate(micro[0].split(","))
+Loci = enumerate(micro[0].split(	))
 Locuslist = list()
 for number, locus in Loci:
     if number % 2 == 0 and number != 0:
@@ -84,7 +84,7 @@ for Num_loci in range(8,51):
             #Father
             male = random.choice(Males)
             micromale = list(filter(lambda f:male[0] in f, micro))
-            micromale = micromale[0].split(",")[1::]
+            micromale = micromale[0].split(	)[1::]
             allelesmale = mergealleles(micromale)
             #Calf
             Fatherinherit = list()
@@ -94,7 +94,7 @@ for Num_loci in range(8,51):
             #HalfSib
             female = random.choice(Females)
             microfemale = list(filter(lambda f:female[0] in f, micro))
-            microfemale = microfemale[0].split(",")[1::]
+            microfemale = microfemale[0].split(	)[1::]
             allelesfemale = mergealleles(microfemale)
             Halfsiballeles = list()
             for Locusmale, Locusfemale in zip(allelesmale, allelesfemale):
@@ -132,7 +132,7 @@ df2 = pd.DataFrame(list(zip(Locinum,Represult_2ms)), columns =['Loci','FP(%)'])
 
 X = list()
 Y = list()
-for Num_loci in range(8,51):
+for Num_loci in range(8,51): #Total number of loci (+1)
     Temp = df.loc[df['Loci'] == Num_loci]
     X.append(Temp['Loci'].median())
     Y.append(Temp['FP(%)'].median())

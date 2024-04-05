@@ -3,11 +3,11 @@ import csv
 import itertools
 
 
-with open("Samples.txt") as f:
+with open("Samples.txt") as f: #One column with individual IDs
     po = f.readlines()
 po = [x.strip().split('\t')[0] for x in po]
 Sex_dict = {}
-with open("Mn_Sex_20230905.tsv") as f:
+with open("Sexes.tsv") as f: #Two columns tab separated, first column individual ID, second column sex (male/female)
     Sex = f.readlines()
     Sex = [x.strip().split('\t') for x in Sex]
     for x in Sex:

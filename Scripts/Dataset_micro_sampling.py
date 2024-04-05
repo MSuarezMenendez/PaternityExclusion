@@ -6,12 +6,10 @@ import multiprocessing
 import types
 import pandas as pd
 import random
-Microsatellites= "../Mn_32loci_20230905.tsv"
+Microsatellites= "./Microsatellites.tsv" #Input file
 micro = pd.read_csv(Microsatellites, sep="\t")
 Microheader = list(micro)
 
-Number_loci= 32
-Repe = Number_loci - 1
 
 #List of loci
 Loci = enumerate(Microheader)
@@ -24,6 +22,8 @@ for number, locus in enumerate(Locuslist):
     number = number + 1
     Locus[number] = locus[:-3]
 Locus = list(Locus.values())
+Number_loci= len(Locus)
+Repe = Number_loci - 1
 
 def subset(Loci, Set, rep):
     global Locus

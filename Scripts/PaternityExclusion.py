@@ -101,8 +101,8 @@ def search(Parejas):
     Allelemis = {}
     Mismatchloci = {}
     Resultados = list()
-    microcalf = micro.loc[micro['Category'] == Parejas[0]].values.tolist()[0][1::]
-    micromother = micro.loc[micro['Category'] == Parejas[1]].values.tolist()[0][1::]
+    microcalf = micro.loc[micro['IDs'] == Parejas[0]].values.tolist()[0][1::]
+    micromother = micro.loc[micro['IDs'] == Parejas[1]].values.tolist()[0][1::]
     allelesmother = mergealleles(micromother)
     allelescalf = mergealleles(microcalf)
     Sirecheck = list()
@@ -177,7 +177,7 @@ def search(Parejas):
     for male in Males:
         if male[0] != Parejas[0]:
             count = 0
-            micromale = micro.loc[micro['Category'] == male[0]].values.tolist()[0][1::]
+            micromale = micro.loc[micro['IDs'] == male[0]].values.tolist()[0][1::]
             allelesmale = mergealleles(micromale)
             Locusn = 0
             Missalelle = 0

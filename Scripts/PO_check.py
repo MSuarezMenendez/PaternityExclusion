@@ -9,7 +9,7 @@ import pandas as pd
 from argparse import ArgumentParser
 parser = ArgumentParser()
 flag = parser.add_argument_group('Arguments')
-flag.add_argument("-m", action="store", dest="MinimumML", help="Match threshold")
+flag.add_argument("-m", action="store", dest="MinimumML", help="Marker match threshold")
 flag.add_argument("-i", action="store", dest="Microsatellites", help="Name\
  of input file with microsatellite data")
 flag.add_argument("-d", action="store", dest="Delimiter", help="Microsatellite\
@@ -88,7 +88,7 @@ def mergealleles(info):
     return lista
 
 
-print("Calf\tParent\tParent-Calf_MS\tParent-Calf_MSL\tParent-Calf_MM\tParent-Calf_MML\tMatching")
+print("Indv1\tIndv2\tParent-Calf_MS\tParent-Calf_MSL\tParent-Calf_MM\tParent-Calf_MML\tMatching")
 
 
 def search(Parejas):
@@ -101,7 +101,7 @@ def search(Parejas):
     allelescalf = mergealleles(microcalf)
     Sirecheck = list()
     Counter = 0
-    for allelem, allelec, in zip(allelesParent,allelescalf): # Check the behaviour of this changing test data
+    for allelem, allelec, in zip(allelesParent,allelescalf): 
         Counter += 1
         Mismatch = 0
         Missing = 0
