@@ -1,68 +1,69 @@
 
-
-# **PHFinder: Assisted detection of point heteroplasmy in Sanger sequencing chromatograms.**
+# **Baleen whale microsatellite panel for individual identification and parentage assignment in *Mysticeti***
 
 ## Overview
 
-**PHFinder** is an open-source Python tool designed to automatically assist on the detection of point heteroplasmy in Sanger sequencing chromatograms (AB1 files). This tool was designed with the aim of reducing the amount of files to be manually checked, especially on large datasets and set a less subjective definition of what double peaks can be considered an heteroplasmy.
+Python scripts used on the manuscript "*Baleen whale microsatellite panel for individual identification and parentage assignment in *Mysticeti*".
 
-A more detail description of PHFinder and its functioning can be found in the published paper:
+## Scripts
 
+**Create_PO.py**: Outputs every combination of two individuals from a file.
 
+Run example: ```python3 Create_PO.py```
 
-## Installation
+**PO_check.py**: Parent-offspring exclusion.
 
-PHFinder consists of a main Python script and a Bash script. It requires to function the following dependencies:
+Run example: ```python3 ./PO_check.py -m 30 -i Microsatellites.tsv -c PO_list.tsv```
 
-+ [**Biopython**](https://biopython.org/)
-+ [**Bowtie2**](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
-
-After installation of these dependencies, to run PHFinder it's only necessary to copy the scripts in the desired working directory (and if necessary, make the files executable command: `chmod u+x PHFinder.py Bash_h.sh`).
-
-It is also possible to run PHFinder in any directory without copying the scripts by downloading the folder PHFinder_Install and running inside the command `sudo python setup.py install`.  After this is done PHFinder can be used in any directory with the command `PHFinder.py`.
-
-PHFinder scripts can be run on UNIX systems.
++ **-m** Minimum number of markers that need to match to consider a PO pair
++ **-i** Input file with the microsatellite data (format example [**here**](https://github.com/MSuarezMenendez/PaternityExclusion/tree/main/Example_files/Microsatellites.tsv))
++ **-c** Name of file with a list of PO pairs to check (format example [**here**](https://github.com/MSuarezMenendez/PaternityExclusion/tree/main/Example_files/PO_list.tsv))
 
 
-## Instructions for Analysis
+**Create_Calf_Mother.py**: Outputs every combination of calf-mother pairs, based on a list of samples and their sex (file names coded in script, examples [**here**](https://github.com/MSuarezMenendez/PaternityExclusion/tree/main/Example_files/Samples.txt) and [**here**](https://github.com/MSuarezMenendez/PaternityExclusion/tree/main/Example_files/Sexes.tsv)).
 
-PHFinder has been optimized to be run in a directory where the chromatograms are divided in several subfolders (see [**ExampleDataDirectory**](https://github.com/MSuarezMenendez/PHFinder/tree/master/ExampleDataDirectory), data also available [**here**](https://github.com/MSuarezMenendez/PHFinder/tree/master/ExampleDataDirectory)). But it will analyse any chromatogram present in the working directory (no matter the directory structure).
+Run example: ```python3 Create_Calf_Mother.py```
 
-The arguments to use PHFinder in the terminal are the following:
+**PaternityExclusion.py**: Paternity exclusion, it searches for a putative father for a given calf-mother pair.
 
-+ **-o** Name of the output directory
-+ **-f** Indicates that FASTQ files are to be extracted from the AB1 files
-+ **-a** Fasta file to be used for the alignment
-+ **-d** Enables the detection of heteroplasmy in the AB1 files
-+ **-r** Ratio threshold for the detection of heteroplasmy (Default: 30)
-+ **-q** Average quality threshold for the analysed region (Default: 40)
-+ **-s** Analysis starting position (based on provided reference)
-+ **-e** Analysis ending position (based on provided reference)
-+ **-r** Secondary ratio thresholds for the detection of heteroplasmy (Default: 0.4) Can be deactivated by setting a high value (e.g., 100)
-+ **-t** Test run **\***
+Run example: ```python3 ./PaternityExclusion.py -m 30 -i Microsatellites.tsv -s Males.txt -c Calf_mother_list.tsv```
 
-Example run:
++ **-m** Minimum number of markers that need to match to consider a PO pair
++ **-i** Input file with the microsatellite data (format example [**here**](https://github.com/MSuarezMenendez/PaternityExclusion/tree/main/Example_files/Microsatellites.tsv))
++ **-s** Name of file with a list of potential sires (format example [**here**](https://github.com/MSuarezMenendez/PaternityExclusion/tree/main/Example_files/Males.txt))
++ **-c** Name of file with a list of Calf-Mother pairs to check (format example [**here**](https://github.com/MSuarezMenendez/PaternityExclusion/tree/main/Example_files/Calf_mother_list.tsv))
 
-`PHFinder.py -o "Outputfolder" -f -a "Reference.fasta" -d -r 15 -q 40 -s 25 -e 350`
+**MultiLoci.py**: Increases the number of loci of a dataset by sampling with replacement from the input microsatellite dataset (microsatellite file input and number of loci to duplicate coded in the script).
 
-This command will extract fast files for every AB1 file present in the working directory, align them to the provided reference and look for double peaks (small peak at least 15% the size of the main one), from position 25 of the reference to position 350 if the average quality on this region is at least 40.
+Run example: ```python3 MultiLoci.py```
 
-**\*** The test run option will automatically run 64 different combination of threshold indexes. To run this option a file named [**List_HP.csv**](https://github.com/MSuarezMenendez/PHFinder/tree/master/ExampleDataDirectory/List_HP.csv) with already known heteroplasmies in the dataset has to be present in the working directory. This allows to test what set of thresholds would detect most of the known heteroplasmies with least amount of ab1 files to go through.
+**Parentage_simulation.py**: Simulation of paternity assignment (Coded in script two input files with a list of females and males in the dataset, [**here**](https://github.com/MSuarezMenendez/PaternityExclusion/tree/main/Example_files/Females.txt) and [**here**](https://github.com/MSuarezMenendez/PaternityExclusion/tree/main/Example_files/Males.txt)).
 
-## Citation
+Run example: ```python3 Parentage_simulation.py -r 1500 -i Extra_loci.tsv -o Simulation.pdf```
 
-Suárez Menéndez M, Rivera-León VE, Robbins J, Berube M, Palsbøll PJ. 2023. PHFinder: assisted detection of point heteroplasmy in Sanger sequencing chromatograms. PeerJ 11:e16028 https://doi.org/10.7717/peerj.16028
++ **-r** Number of replicates
++ **-i** Input file with the microsatellite data (output from MultiLoci.py, example [**here**](https://github.com/MSuarezMenendez/PaternityExclusion/tree/main/Example_files/Extra_loci.tsv))
++ **-o** Output name for results figure
 
-## Version
+**Dataset_micro_sampling.py**: Creates subsampled datasets, starting from eight loci, adding an additional locus at a time till all loci are included. It creates 50 replicate datasets per set of loci (microsatellite file input coded in the script)
 
-The current release of **PHFinder** is [**v1.0**].
+Run example: ```python3 Dataset_micro_sampling.py```
 
+**Pat_Excl_Cal.py**: Calculates the combined non-exclusion probability of the first parent for the given dataset (input format example [**here**](https://github.com/MSuarezMenendez/PaternityExclusion/tree/main/Example_files/Microsatellites.tsv)).
+
+Run example: ```python3 Pat_Excl_Cal.py Microsatellites.tsv```
+
+**Examples of the input files for the scripts can be found** [**here**](https://github.com/MSuarezMenendez/PaternityExclusion/tree/main/Example_files)
+
+## Preprint
+
+M. Suárez-Menéndez, M. Bérubé, L. Bachmann, P. Best, M. P. Heide-Jørgensen, V. Lesage, T. Oosting, R. Prieto, C. Ramp, J. Robbins, R. Sears, M. A. Silva, M. Tollis, E. Vermeulen, G. A. Víkingsson, Ø. Wiig, and P. J. Palsbøll. Universal baleen whale microsatellite panel for individual identification and power to detect parentage (2023) bioRxiv 2023.04.12.536337; doi: https://doi.org/10.1101/2023.04.12.536337
 
 ## License
 
 GNU General Public License v3.0
 
-Copyright (C) 2022 Marcos Suarez
+Copyright (C) 2023 Marcos Suarez
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -75,4 +76,4 @@ GNU General Public License for more details.
 
 ## Contact
 
-PHFinder is written by Marcos Suarez (m.suarez.menendez@rug.nl)
+Scripts were written by Marcos Suárez-Menéndez (marcos.sume@gmail.com) and Per Palsbøll
