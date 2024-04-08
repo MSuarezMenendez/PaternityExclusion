@@ -1,5 +1,5 @@
 
-# **Baleen whale microsatellite panel for individual identification and parentage assignment in *Mysticeti* **
+# **Baleen whale microsatellite panel for individual identification and parentage assignment in *Mysticeti***
 
 ## Overview
 
