@@ -3,7 +3,7 @@
 
 ## Overview
 
-Python scripts used on the manuscript "*Baleen whale microsatellite panel for individual identification and parentage assignment in *Mysticeti*".
+Python scripts used on the manuscript "Baleen whale microsatellite panel for individual identification and parentage assignment in *Mysticeti*".
 
 ## Scripts
 
