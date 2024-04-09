@@ -1,4 +1,4 @@
-
+[![DOI](https://zenodo.org/badge/610674234.svg)](https://zenodo.org/doi/10.5281/zenodo.10948827)
 # **Baleen whale microsatellite panel for individual identification and parentage assignment in *Mysticeti***
 
 ## Overview
