@@ -1,4 +1,5 @@
 [![DOI](https://zenodo.org/badge/610674234.svg)](https://zenodo.org/doi/10.5281/zenodo.10948827)
+[![DOI:10.1016/j.gecco.2024.e02947](http://img.shields.io/badge/DOI-10.1016/j.gecco.2024.e02947-green.svg)](https://doi.org/10.1016/j.gecco.2024.e02947)
 # **Baleen whale microsatellite panel for individual identification and parentage assignment in *Mysticeti***
 
 ## Overview
@@ -54,6 +55,10 @@ Run example: ```python3 Dataset_micro_sampling.py```
 Run example: ```python3 Pat_Excl_Cal.py Microsatellites.tsv```
 
 **Examples of the input files for the scripts can be found** [**here**](https://github.com/MSuarezMenendez/PaternityExclusion/tree/main/Example_files)
+
+## Citation
+
+M. Suárez-Menéndez, M. Bérubé, L. Bachmann, P. Best, M. P. Heide-Jørgensen, V. Lesage, T. Oosting, R. Prieto, C. Ramp, J. Robbins, R. Sears, M. A. Silva, M. Tollis, E. Vermeulen, G. A. Víkingsson, Ø. Wiig, P. J. Palsbøll, Baleen whale microsatellite panel for individual identification and parentage assignment in *Mysticeti*. Glob. Ecol. Conserv., e02947 (2024). https://doi.org/10.1016/j.gecco.2024.e02947.
 
 ## Preprint
 
